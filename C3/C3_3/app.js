@@ -24,7 +24,7 @@ for (let key in student) {
         console.log(key); // ownCity
     }
 }
-
+console.log('');
 // Функция в JavaScript это — тоже объект!
 
 // Написать, функцию, которая принимает в качестве аргумента объект и выводит в консоль все ключи и значения только
@@ -37,17 +37,22 @@ function printObject (obj) {
     }
   }
 }
+printObject(person);
 
 // Написать функцию, которая принимает в качестве аргументов строку и объект, а затем проверяет есть ли у
 // переданного объекта свойство с данным именем. Функция должна возвращать true или false.
 
 function checkPropInObj (str, obj) {
-  return (str in obj);
+    let result = (str in obj);
+    return result;
 }
+let res = checkPropInObj('city', person);
+console.log(res);
 
 // Написать функцию, которая создает пустой объект, но без прототипа.
 
 function createObjWithoutProto() {
   return Object.create(null);
 }
-
+const emptyObj = createObjWithoutProto();
+console.log(emptyObj);

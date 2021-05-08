@@ -22,19 +22,20 @@
 // Функцией-конcтруктором может быть любая функция в JavaScript (кроме стрелочной, о которой мы разговаривали
 // в предыдущем модуле). Их принято именовать с большой буквы.
 
-function Candy(weight){
+function Candy(weight) {
   this.tasty = 'delicious',
-  this.getWeight = function(){
-    console.log(`Weight is ${weight} g`)
+  this.getWeight = function () {
+    console.log(`Weight is ${weight} g`);
   }
 }
 
 const twix = new Candy(47);
 const snickers = new Candy(50);
 
-twix.getWeight()
-snickers.getWeight()
+twix.getWeight();
+snickers.getWeight();
 
+// Задание 4
 
 function ElectricalAppliance(name, power) {
     this.name = name;
@@ -61,6 +62,15 @@ function Lamp(name, brand, power, bulbType) {
     this.power = power;
     this.bulbType = bulbType;
     this.isPlugged = true;
+    this.isBurning = function () {
+        if (this.isPlugged) {
+            console.log(this.name + " is burning!");
+        }
+        else {
+            console.log(this.name + " is not burning!");
+        }
+        // console.log(this.name + " is burning!");
+    };
 }
 
 Lamp.prototype = new ElectricalAppliance();
@@ -73,6 +83,14 @@ function Computer(name, brand, power, type, functionality) {
     this.type = type;
     this.functionality = functionality;
     this.isPlugged = false;
+    this.isWorks = function () {
+        if (this.isPlugged) {
+            console.log(this.name + " works!");
+        }
+        else {
+            console.log(this.name + " not works!");
+        }
+    };
 }
 
 Computer.prototype = new ElectricalAppliance();
@@ -85,10 +103,14 @@ const homePC = new Computer("Table PC", "Intel", 120, "stationary", "for work");
 
 // отключить лампу из розетки
 tableLamp.unplug();
+// вызов tableLamp метода
+tableLamp.isBurning();
 
 // включить homePC в розетку
 homePC.plugIn();
+// вызов homePC метода
+homePC.isWorks();
 
 // результат
-console.log(homePC)
-console.log(tableLamp)
+console.log(homePC);
+console.log(tableLamp);

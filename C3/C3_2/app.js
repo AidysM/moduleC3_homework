@@ -31,9 +31,9 @@ const obj = {
 const key = 'myProp';
 
 obj.myProp; // 100
-// obj['myProp']; // 100
-// obj[1]; // 200
-// obj[key]; // 100
+obj['myProp']; // 100
+obj[1]; // 200
+obj[key]; // 100
 
 const lang = prompt("Введите название языка программирования", "javascript");
 
@@ -59,3 +59,14 @@ for (let key in obj4) {
     console.log(obj4[key]);
 }
 
+// Создайте пустой объект;
+const empty_obj = {};
+// Добавьте несколько свойств со значениями разных типов;
+empty_obj.a = 10;
+empty_obj[10] = 'string';
+// Добавьте метод;
+empty_obj.m = function () {console.log(123)};
+// Удалите одно из созданных свойств.
+delete empty_obj.a;
+empty_obj.m();
+console.log(empty_obj);
